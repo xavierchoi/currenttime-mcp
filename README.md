@@ -53,8 +53,11 @@ claude mcp add currenttime-mcp
 ### 1. PyPI에서 설치
 
 ```bash
-# uvx를 사용한 설치 (권장)
-uvx install currenttime-mcp
+# uvx로 즉시 실행 (설치 없이 권장)
+uvx currenttime-mcp
+
+# 또는 uv로 시스템 설치
+uv tool install currenttime-mcp
 
 # 또는 pip 사용
 pip install currenttime-mcp
@@ -95,6 +98,10 @@ Claude Code에서 다음과 같이 사용할 수 있습니다:
 
 이 MCP 서버는 다음 외부 서비스를 사용합니다:
 - **ipapi.co**: IP 기반 지리적 위치 및 타임존 감지 (월 30,000회 무료)
+
+환경변수로 설정을 조정할 수 있습니다:
+- `IPAPI_BASE`: 기본 API 엔드포인트(기본값: `https://ipapi.co`)
+- `IPAPI_KEY`: ipapi 유료/개인 키(있을 경우 쿼터 증가)
 
 ## 기술 스택
 

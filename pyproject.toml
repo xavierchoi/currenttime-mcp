@@ -1,6 +1,6 @@
 [project]
 name = "currenttime-mcp"
-version = "1.0.0"
+version = "1.0.1"
 description = "MCP server for accurate current time with IP-based timezone detection"
 readme = "README.md"
 license = "MIT"
