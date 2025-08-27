@@ -34,7 +34,7 @@ mcp = FastMCP("CurrentTime")
 _session = requests.Session()
 _session.headers.update(
     {
-        "User-Agent": f"currenttime-mcp/1.0.1 (+https://github.com/currenttime-mcp/currenttime-mcp)",
+        "User-Agent": f"currenttime-mcp/1.0.1 (+https://github.com/xavierchoi/currenttime-mcp)",
         "Accept": "application/json",
     }
 )

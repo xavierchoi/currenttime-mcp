@@ -28,9 +28,9 @@ dependencies = [
 requires-python = ">=3.8"
 
 [project.urls]
-Homepage = "https://github.com/currenttime-mcp/currenttime-mcp"
-Repository = "https://github.com/currenttime-mcp/currenttime-mcp.git"
-Issues = "https://github.com/currenttime-mcp/currenttime-mcp/issues"
+Homepage = "https://github.com/xavierchoi/currenttime-mcp"
+Repository = "https://github.com/xavierchoi/currenttime-mcp.git"
+Issues = "https://github.com/xavierchoi/currenttime-mcp/issues"
 
 [project.scripts]
 currenttime-mcp = "currenttime_mcp.server:main"
