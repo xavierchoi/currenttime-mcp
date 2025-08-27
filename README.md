@@ -1,6 +1,11 @@
-# CurrentTime MCP Server
+# CurrentTime MCP Server 🕐
+
+[![PyPI version](https://badge.fury.io/py/currenttime-mcp.svg)](https://pypi.org/project/currenttime-mcp/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 IP 기반 타임존 감지를 통해 정확한 현재 시간을 제공하는 MCP(Model Context Protocol) 서버입니다.
+
+Claude Code, Cursor, 또는 다른 MCP 호환 에디터에서 **"현재 시간이 몇 시야?"** 라고 물으면 자동으로 여러분의 위치를 감지해서 정확한 시간을 알려드립니다! ⚡
 
 ## 기능
 
@@ -40,13 +45,15 @@ IP 기반 타임존 감지를 통해 정확한 현재 시간을 제공하는 MCP
 ### 4. `list_common_timezones`
 지역별로 정리된 일반적인 타임존 목록을 반환합니다.
 
-## 빠른 설치
+## 빠른 설치 (추천) ⚡
 
-Claude Code 또는 다른 MCP 클라이언트에서 한 줄로 설치할 수 있습니다:
+Claude Code에서 한 줄로 설치할 수 있습니다:
 
 ```bash
-claude mcp add currenttime-mcp
+claude mcp add currenttime --scope user -- uvx currenttime-mcp
 ```
+
+설치 후 Claude Code를 재시작하면 바로 사용 가능합니다! 🚀
 
 ## 수동 설치
 
@@ -87,12 +94,19 @@ python test_server.py
 
 ## 사용 예시
 
-Claude Code에서 다음과 같이 사용할 수 있습니다:
+Claude Code에서 다음과 같이 자연어로 요청할 수 있습니다:
 
-- "현재 시간이 몇 시야?" 
-- "뉴욕의 현재 시간을 알려줘"
-- "내 타임존 정보를 보여줘"
-- "사용 가능한 타임존 목록을 보여줘"
+- 💬 "현재 시간이 몇 시야?"
+- 🌍 "뉴욕의 현재 시간을 알려줘"
+- 📍 "내 타임존 정보를 보여줘"  
+- 🕐 "사용 가능한 타임존 목록을 보여줘"
+
+### 실제 응답 예시
+```
+🕘 현재 시간: 2025년 8월 27일 오후 11시 26분 5초 (KST)
+📍 위치 정보: 성북구, 서울, 대한민국 🇰🇷
+⏰ 타임존: Asia/Seoul (UTC+9)
+```
 
 ## API 정보
 
