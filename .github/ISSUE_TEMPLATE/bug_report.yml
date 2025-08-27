@@ -1,0 +1,79 @@
+name: Bug Report
+description: Report a bug or issue with CurrentTime MCP Server
+title: "[BUG] "
+labels: ["bug"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+        
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Describe the issue you're experiencing...
+    validations:
+      required: true
+      
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Run command '...'
+        2. Send request '...'
+        3. See error
+    validations:
+      required: true
+      
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen
+      placeholder: Describe what should happen...
+    validations:
+      required: true
+      
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened
+      placeholder: Describe what actually happened...
+    validations:
+      required: true
+      
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Information
+      description: Information about your environment
+      value: |
+        - OS: [e.g. macOS 15.0, Windows 11, Ubuntu 22.04]
+        - Python Version: [e.g. 3.11.5]
+        - CurrentTime MCP Version: [e.g. 1.0.1]
+        - Claude Code Version: [if applicable]
+        - Installation Method: [uvx, pip, etc.]
+    validations:
+      required: true
+      
+  - type: textarea
+    id: error_logs
+    attributes:
+      label: Error Messages/Logs
+      description: Any error messages or relevant log output
+      render: shell
+      placeholder: Paste error messages here...
+      
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here
+      placeholder: Any additional information that might help...

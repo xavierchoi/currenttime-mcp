@@ -1,130 +1,132 @@
 # CurrentTime MCP Server 🕐
 
+**[English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md)**
+
 [![PyPI version](https://badge.fury.io/py/currenttime-mcp.svg)](https://pypi.org/project/currenttime-mcp/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-IP 기반 타임존 감지를 통해 정확한 현재 시간을 제공하는 MCP(Model Context Protocol) 서버입니다.
+An MCP (Model Context Protocol) server that provides accurate current time with IP-based timezone detection.
 
-Claude Code, Cursor, 또는 다른 MCP 호환 에디터에서 **"현재 시간이 몇 시야?"** 라고 물으면 자동으로 여러분의 위치를 감지해서 정확한 시간을 알려드립니다! ⚡
+When you ask **"What time is it now?"** in Claude Code, Cursor, or other MCP-compatible editors, it automatically detects your location and tells you the exact time! ⚡
 
-## 기능
+## Features
 
-- **자동 타임존 감지**: 클라이언트의 IP 주소를 기반으로 자동으로 타임존을 감지합니다
-- **정확한 시간 제공**: pytz 라이브러리를 사용하여 정확한 현재 시간을 계산합니다
-- **다양한 타임존 지원**: 전 세계 597개의 타임존을 지원합니다
-- **클라이언트 정보**: IP 기반 위치 정보와 타임존 정보를 제공합니다
+- **Automatic Timezone Detection**: Automatically detects timezone based on client's IP address
+- **Accurate Time Provision**: Calculates precise current time using the pytz library
+- **Multiple Timezone Support**: Supports 597 timezones worldwide
+- **Client Information**: Provides IP-based location information and timezone details
 
-## 제공되는 Tools
+## Available Tools
 
 ### 1. `get_current_time`
-클라이언트의 IP를 기반으로 타임존을 자동 감지하고 현재 시간을 반환합니다.
+Automatically detects timezone based on client's IP and returns the current time.
 
-**매개변수:**
-- `client_ip` (선택사항): 특정 IP 주소를 지정할 수 있습니다.
+**Parameters:**
+- `client_ip` (optional): You can specify a specific IP address.
 
-**반환값:**
-- `current_time`: ISO 형식의 현재 시간
-- `timezone`: 감지된 타임존 (예: "Asia/Seoul")
-- `formatted_time`: 읽기 쉬운 형식의 시간 (예: "2025-08-27 21:55:40 KST")
-- `location`: 도시, 지역, 국가 정보
-- `utc_offset`: UTC 오프셋
-- `is_dst`: 일광절약시간 적용 여부
+**Returns:**
+- `current_time`: Current time in ISO format
+- `timezone`: Detected timezone (e.g., "Asia/Seoul")
+- `formatted_time`: Human-readable time format (e.g., "2025-08-27 21:55:40 KST")
+- `location`: City, region, country information
+- `utc_offset`: UTC offset
+- `is_dst`: Daylight saving time status
 
 ### 2. `get_time_for_timezone`
-특정 타임존의 현재 시간을 반환합니다.
+Returns the current time for a specific timezone.
 
-**매개변수:**
-- `timezone_name`: 타임존 이름 (예: "America/New_York", "Europe/London")
+**Parameters:**
+- `timezone_name`: Timezone name (e.g., "America/New_York", "Europe/London")
 
 ### 3. `get_client_info`
-클라이언트의 IP 기반 위치 정보와 타임존을 반환합니다.
+Returns client's IP-based location information and timezone.
 
-**매개변수:**
-- `client_ip` (선택사항): 특정 IP 주소를 지정할 수 있습니다.
+**Parameters:**
+- `client_ip` (optional): You can specify a specific IP address.
 
 ### 4. `list_common_timezones`
-지역별로 정리된 일반적인 타임존 목록을 반환합니다.
+Returns a list of common timezones organized by region.
 
-## 빠른 설치 (추천) ⚡
+## Quick Installation (Recommended) ⚡
 
-Claude Code에서 한 줄로 설치할 수 있습니다:
+Install with one line in Claude Code:
 
 ```bash
 claude mcp add currenttime --scope user -- uvx currenttime-mcp
 ```
 
-설치 후 Claude Code를 재시작하면 바로 사용 가능합니다! 🚀
+Restart Claude Code after installation and it's ready to use! 🚀
 
-## 수동 설치
+## Manual Installation
 
-### 1. PyPI에서 설치
+### 1. Install from PyPI
 
 ```bash
-# uvx로 즉시 실행 (설치 없이 권장)
+# Run instantly with uvx (no installation required, recommended)
 uvx currenttime-mcp
 
-# 또는 uv로 시스템 설치
+# Or install with uv tool
 uv tool install currenttime-mcp
 
-# 또는 pip 사용
+# Or use pip
 pip install currenttime-mcp
 ```
 
-### 2. Claude Code 설정
+### 2. Claude Code Configuration
 
-Claude Code에서 `config.toml` 파일에 다음과 같이 추가하세요:
+Add the following to your `config.toml` file in Claude Code:
 
 ```toml
 [mcp_servers.currenttime]
 command = "uvx"
 args = ["currenttime-mcp"]
 
-# 또는 pip으로 설치한 경우
+# Or if installed with pip
 [mcp_servers.currenttime]  
 command = "currenttime-mcp"
 ```
 
-### 3. 테스트
+### 3. Testing
 
 ```bash
-# 함수 테스트
+# Function testing
 source venv/bin/activate
 python test_server.py
 ```
 
-## 사용 예시
+## Usage Examples
 
-Claude Code에서 다음과 같이 자연어로 요청할 수 있습니다:
+You can make natural language requests in Claude Code:
 
-- 💬 "현재 시간이 몇 시야?"
-- 🌍 "뉴욕의 현재 시간을 알려줘"
-- 📍 "내 타임존 정보를 보여줘"  
-- 🕐 "사용 가능한 타임존 목록을 보여줘"
+- 💬 "What time is it now?"
+- 🌍 "What time is it in New York?"
+- 📍 "Show me my timezone information"  
+- 🕐 "Show me available timezones"
 
-### 실제 응답 예시
+### Actual Response Example
 ```
-🕘 현재 시간: 2025년 8월 27일 오후 11시 26분 5초 (KST)
-📍 위치 정보: 성북구, 서울, 대한민국 🇰🇷
-⏰ 타임존: Asia/Seoul (UTC+9)
+🕘 Current Time: August 27, 2025, 11:26:05 PM (KST)
+📍 Location: Seongbuk-gu, Seoul, South Korea 🇰🇷
+⏰ Timezone: Asia/Seoul (UTC+9)
 ```
 
-## API 정보
+## API Information
 
-이 MCP 서버는 다음 외부 서비스를 사용합니다:
-- **ipapi.co**: IP 기반 지리적 위치 및 타임존 감지 (월 30,000회 무료)
+This MCP server uses the following external services:
+- **ipapi.co**: IP-based geographic location and timezone detection (30,000 requests/month free)
 
-환경변수로 설정을 조정할 수 있습니다:
-- `IPAPI_BASE`: 기본 API 엔드포인트(기본값: `https://ipapi.co`)
-- `IPAPI_KEY`: ipapi 유료/개인 키(있을 경우 쿼터 증가)
+You can adjust settings with environment variables:
+- `IPAPI_BASE`: Default API endpoint (default: `https://ipapi.co`)
+- `IPAPI_KEY`: ipapi premium/personal key (increases quota if available)
 
-## 기술 스택
+## Tech Stack
 
 - **Python 3.8+**
-- **MCP (Model Context Protocol)**: AI 모델과의 표준화된 통신
-- **FastMCP**: MCP 서버 구현을 위한 고수준 프레임워크
-- **requests**: HTTP 클라이언트
-- **pytz**: 타임존 처리
+- **MCP (Model Context Protocol)**: Standardized communication with AI models
+- **FastMCP**: High-level framework for MCP server implementation
+- **requests**: HTTP client
+- **pytz**: Timezone handling
 
-## 라이센스
+## License
 
-이 프로젝트는 MIT 라이센스 하에 있습니다.
+This project is licensed under the MIT License.
